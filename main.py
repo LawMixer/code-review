@@ -31,7 +31,7 @@ intents= interactions.Intents.ALL | interactions.Intents.GUILD_MESSAGE_CONTENT)
 cred = credentials.Certificate("") # taken out for privacy purposes 
 
 default_app = firebase_admin.initialize_app(cred, {
-	    'databaseURL': "https://project-scpf-default-rtdb.firebaseio.com" # taken out for privacy purposes 
+	    'databaseURL': "" # taken out for privacy purposes 
 })
 
 
