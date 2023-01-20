@@ -20,7 +20,7 @@ client = Client(os.environ["ROBLOX_COOKIE"])
 
 app = Flask(__name__)
 config = Config()
-config.bind = ["0.0.0.0:5000"] #0.0.0.0:5000
+config.bind = ["0.0.0.0:5000"] 
 
 load_dotenv()
 
@@ -28,10 +28,10 @@ bot = interactions.Client(
 token=os.environ["TOKEN"], 
 intents= interactions.Intents.ALL | interactions.Intents.GUILD_MESSAGE_CONTENT)
 
-cred = credentials.Certificate("configurations/project-scpf-firebase-adminsdk-q8rkn-aec3853ae6.json")
+cred = credentials.Certificate("") # taken out for privacy purposes 
 
 default_app = firebase_admin.initialize_app(cred, {
-	    'databaseURL': "https://project-scpf-default-rtdb.firebaseio.com"
+	    'databaseURL': "https://project-scpf-default-rtdb.firebaseio.com" # taken out for privacy purposes 
 })
 
 
@@ -63,22 +63,6 @@ bot.load("tasks.holidays")
 @app.route('/')
 async def homePage():
     return "Nothing for you here."
-
-
-# @app.route("/changedevproduct", methods=["POST", "GET"])
-# async def changeDevProduct():
-#     if request.headers["DEVPRODUCT_API_KEY"] == os.environ["DEVPRODUCT_API_KEY"]:
-#         developerProductId = 1330724291
-#         universeId = 3071466236
-        
-#         priceInRobux = request.get_json()["priceInRobux"]
-#         devLink = f"https://develop.roblox.com/v1/universes/{universeId}/developerproducts/{developerProductId}/update"
-
-#         something = await client.requests.post(devLink, json={
-#             "PriceInRobux": priceInRobux,
-#         })
-#         print(something.status_code)
-#         return "Hello, world!"
 
 @app.route('/applications', methods=['GET', 'POST'])
 async def applicationPage():
